@@ -6,6 +6,14 @@ const nextConfig = {
     imageSizes: [200, 542, 787, 986, 1220, 1374],
     domains: [],
   },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
+
+    return config;
+  },
 };
 
 export default nextConfig;

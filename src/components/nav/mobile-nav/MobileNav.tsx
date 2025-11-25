@@ -25,7 +25,7 @@ export default function MobileNav() {
 
         <nav className="navigation__nav">
           <Link href={routes.home()} className="navigation__logo">
-            <Image src={OncrestLogoWhite} alt="Oncrest Logo" />
+            <OncrestLogoWhite />
           </Link>
           <ul className="navigation__list sm:max-w-xs">
             {NAV_ITEMS.map(({ link, title }) => (

@@ -62,7 +62,10 @@ export default function QuoteForm() {
   const onSubmit: SubmitHandler<TQuoteForm> = (data) => {};
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)}>
+    <form
+      onSubmit={form.handleSubmit(onSubmit)}
+      className="py-8 px-4 bg-[rgba(0,15,12,0.7)] backdrop-blur-[92px] rounded-2xl"
+    >
       <FieldSet>
         <FieldGroup>
           <Controller
@@ -70,8 +73,11 @@ export default function QuoteForm() {
             name="fullName"
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={field.name}>Full name</FieldLabel>
+                <FieldLabel className="text-base" htmlFor={field.name}>
+                  Full name
+                </FieldLabel>
                 <Input
+                  className="placeholder:text-[#BABABA] placeholder:font-medium"
                   {...field}
                   id={field.name}
                   aria-invalid={fieldState.invalid}
@@ -88,8 +94,11 @@ export default function QuoteForm() {
             name="companyName"
             render={({ field, fieldState }) => (
               <Field aria-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={field.name}>Company name</FieldLabel>
+                <FieldLabel className="text-base" htmlFor={field.name}>
+                  Company name
+                </FieldLabel>
                 <Input
+                  className="placeholder:text-[#BABABA] placeholder:font-medium"
                   {...field}
                   id={field.name}
                   aria-invalid={fieldState.invalid}
@@ -106,8 +115,11 @@ export default function QuoteForm() {
             name="jobTitle"
             render={({ field, fieldState }) => (
               <Field aria-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={field.name}>Job title</FieldLabel>
+                <FieldLabel className="text-base" htmlFor={field.name}>
+                  Job title
+                </FieldLabel>
                 <Input
+                  className="placeholder:text-[#BABABA] placeholder:font-medium"
                   {...field}
                   id={field.name}
                   aria-invalid={fieldState.invalid}
@@ -144,7 +156,9 @@ export default function QuoteForm() {
                           field.onChange(newValue);
                         }}
                       />
-                      <FieldLabel htmlFor={role}>{role}</FieldLabel>
+                      <FieldLabel className="text-base" htmlFor={role}>
+                        {role}
+                      </FieldLabel>
                     </Field>
                   ))}
                 </FieldGroup>
@@ -159,7 +173,11 @@ export default function QuoteForm() {
             name="message"
             render={({ field, fieldState }) => (
               <Field aria-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={field.name} aria-required>
+                <FieldLabel
+                  className="text-base"
+                  htmlFor={field.name}
+                  aria-required
+                >
                   Message
                 </FieldLabel>
                 <Textarea
@@ -167,7 +185,7 @@ export default function QuoteForm() {
                   id={field.name}
                   aria-invalid={fieldState.invalid}
                   placeholder="Enter a message"
-                  className="min-h-32"
+                  className="min-h-32 placeholder:text-[#BABABA] placeholder:font-medium"
                 />
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
@@ -180,7 +198,11 @@ export default function QuoteForm() {
             name="staffingVolume"
             render={({ field, fieldState }) => (
               <Field aria-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={field.name} aria-required>
+                <FieldLabel
+                  className="text-base"
+                  htmlFor={field.name}
+                  aria-required
+                >
                   Staffing volume
                 </FieldLabel>
                 <Select
@@ -195,7 +217,7 @@ export default function QuoteForm() {
                   >
                     <SelectValue placeholder="Select one" />
                   </SelectTrigger>
-                  <SelectContent position="item-aligned">
+                  <SelectContent position="item-aligned" className="bg-white">
                     {staffingVolumes.map((volume) => (
                       <SelectItem key={volume.value} value={volume.value}>
                         {volume.label}
@@ -211,7 +233,9 @@ export default function QuoteForm() {
           />
         </FieldGroup>
         <div>
-          <Button>Get Quote</Button>
+          <Button className="text-xl font-semibold text-gray-400 bg-white h-[54px] w-52 rounded-full">
+            Get Quote
+          </Button>
         </div>
       </FieldSet>
     </form>

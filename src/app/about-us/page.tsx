@@ -100,10 +100,10 @@ export default function AboutUsPage() {
           <h2>What we hold true</h2>
         </div>
         <div>
-          {ourValues.map(({ image: icon, title, description }, i) => (
+          {ourValues.map(({ image: Icon, title, description }, i) => (
             <div key={String(i)}>
               <div>
-                <Image src={icon} alt={title} /> <h4>title</h4>
+                <Icon /> <h4>title</h4>
               </div>
               <p>{description}</p>
             </div>

@@ -92,10 +92,10 @@ export default function ServicesPage() {
           <h2>How We Help You Build Your Ideal Team</h2>
         </div>
 
-        {processes.map(({ image, title, description }, index) => (
-          <div key={image.src}>
+        {processes.map(({ image: Icon, title, description }, index) => (
+          <div key={title}>
             <div>
-              <Image src={image} alt={title} />
+              <Icon />
             </div>
             <div>
               <h2>0{index + 1}</h2>
@@ -119,9 +119,9 @@ export default function ServicesPage() {
         </div>
 
         <div>
-          {how_we_excell.map(({ image, description, title }) => (
-            <div key={image.src}>
-              <Image src={image} alt={title} />
+          {how_we_excell.map(({ image: Icon, description, title }) => (
+            <div key={title}>
+              <Icon />
               <h3>{title}</h3>
               <p>{description}</p>
             </div>

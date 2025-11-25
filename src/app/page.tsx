@@ -5,10 +5,15 @@ import hero_2 from "/public/images/hero_2.jpg";
 import WorkforceModel from "@/lib/assets/illustrations/workforce_model.svg";
 import SavvyAgents from "@/lib/assets/illustrations/savvy_agents.svg";
 import GrowthFreedom from "@/lib/assets/illustrations/growth_freedom.svg";
+import NumberCircleFour from "@/lib/assets/illustrations/NumberCircleFour.svg";
+import Coin from "@/lib/assets/illustrations/Coin.svg";
+import Laptop from "@/lib/assets/illustrations/Laptop.svg";
+import GlobeHemisphereWest from "@/lib/assets/illustrations/GlobeHemisphereWest.svg";
 import { TCardDetail } from "@/lib/types";
 import OurApproach from "@/components/our-approach/OurApproach";
 import RolesWeOffer from "@/components/roles-we-offer/RolesWeOffer";
 import OurClients from "@/components/our-clients/OurClients";
+import { cn } from "@/lib/utils";
 
 const strengths: TCardDetail[] = [
   {
@@ -37,17 +42,49 @@ const strengths: TCardDetail[] = [
   },
 ];
 
+const value_propositions_1: TCardDetail[] = [
+  {
+    image: NumberCircleFour,
+    title: "Big Four Expertise",
+    description:
+      "Our leadership comes from global firms, ensuring world-class practices.",
+  },
+  {
+    image: Coin,
+    title: "Cost Efficiency",
+    description: "High-quality outsourcing at competitive rates.",
+  },
+];
+
+const value_propositions_2: TCardDetail[] = [
+  {
+    image: GrowthFreedom,
+    title: "Scalability",
+    description: "Solutions for both SMEs and large organizations.",
+  },
+  {
+    image: Laptop,
+    title: "Technology-Driven",
+    description: "Secure, cloud-based systems that enhance efficiency.",
+  },
+  {
+    image: GlobeHemisphereWest,
+    title: "Global & Local Perspective",
+    description: "Deep knowledge of African markets with a global outlook.",
+  },
+];
+
 export default function HomePage() {
   return (
     <article>
       <section className="center min-[920px]:flex min-[920px]:gap-x-6 lg:gap-x-16">
         <div className="">
-          <h1 className="font-semibold text-gray-400 text-[clamp(32px,4.5vw,54px)]">
+          <h1 className="font-semibold text-gray-400 text-[clamp(32px,4.5vw,63px)] leading-[120%]">
             Empowering Organizations with Trusted{" "}
             <em className="not-italic text-[#30927E]">Outsourced Solutions</em>
           </h1>
 
-          <p className="font-medium text-gray-300 mt-7 lg:text-xl">
+          <p className="font-medium text-gray-300 mt-7 lg:text-xl lg:leading-[30px] lg:max-w-[657px]">
             Oncrest delivers world-class accounting, IT, and data services —
             combining global standards with local expertise to help businesses
             achieve clarity, compliance, and sustainable growth
@@ -57,7 +94,7 @@ export default function HomePage() {
             Contact us
           </Button>
 
-          <div className="mt-8 lg:mt-32 flex justify-between sm:justify-normal sm:gap-x-14 gap-x-6">
+          <div className="mt-8 min-[920px]:my-16 lg:mt-32 lg:mb-28 flex justify-between sm:justify-normal sm:gap-x-14 gap-x-6">
             <div>
               <h2 className="font-semibold text-gray-400 text-xl lg:text-3xl">
                 2x
@@ -98,11 +135,11 @@ export default function HomePage() {
                         1400px"
                 priority={false}
                 placeholder="blur"
-                className="[transform:rotateY(180deg)_scale(1.3)_translateX(10%)]"
+                className="[transform:rotateY(180deg)_scaleX(1.8)_scaleY(1.2)_translateX(10%)]"
               />
             </div>
           </div>
-          <div className="w-[163.29px] h-[155px] sm:size-[35vw] min-[920px]:size-[clamp(156px,20vw,256px)] rounded-[30px] border-4 border-white absolute -bottom-20 size-full min-[920px]:top-[clamp(10px,30%,180px)] -right-6 z-[2] overflow-hidden">
+          <div className="w-[163.29px] h-[155px] sm:size-[35vw] min-[920px]:size-[clamp(156px,20vw,226px)] rounded-[30px] border-4 border-white absolute -bottom-16 size-full min-[920px]:top-[clamp(10px,30%,215px)] -right-6 z-[2] overflow-hidden">
             <Image
               src={hero_2}
               alt="man outsourcing task 2"
@@ -119,22 +156,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="z-[3] relative bg-[#F1F7F6] -mx-4 px-4 ">
-        <div className="center">
-          <div className="pt-14">
-            <h3 className="font-semibold text-sm text-[#30927E] tracking-widest">
+      <section className="z-[3] relative bg-[#F1F7F6] -mx-4 px-4">
+        <div className="center py-14 min-[920px]:py-28 lg:py-32">
+          <div className="min-[920px]:text-center">
+            <h3 className="font-semibold text-sm text-[#30927E] tracking-widest lg:text-base">
               OUR STRENGTH
             </h3>
-            <h2 className="mt-4 font-semibold text-2xl text-gray-400">
+            <h2 className="mt-4 font-semibold text-2xl text-gray-400 min-[920px]:text-3xl lg:text-5xl lg:leading-[120%] lg:max-w-[812px] lg:mx-auto">
               Empowering your limitless growth with Oncrest Outsourcing
             </h2>
           </div>
 
-          <div className="mt-8 flex flex-col gap-4">
-            {strengths.map(({ image, description, title }) => (
-              <div key={image.src} className="bg-white p-6 rounded-2xl">
-                <Image src={image} alt={title} />
-                <h3 className="mt-8 font-semibold text-gray-400 text-xl">
+          <div className="mt-8 min-[920px]:mt-16 lg:mt-32 flex flex-col gap-4 min-[920px]:grid min-[920px]:grid-cols-3">
+            {strengths.map(({ image: Icon, description, title }) => (
+              <div key={title} className="bg-white p-6 rounded-2xl">
+                <div
+                  className={cn({
+                    "[--growth-freedom-rect-bg:#A3D4B3] text-green-500":
+                      title.toLowerCase() === "operational growth freedom",
+                  })}
+                >
+                  <Icon />
+                </div>
+                <h3 className="mt-8 font-semibold text-gray-400 text-xl lg:text-2xl">
                   {title}
                 </h3>
                 <p className="mt-3 font-medium text-gray-300">{description}</p>
@@ -145,6 +189,55 @@ export default function HomePage() {
       </section>
 
       <OurApproach />
+
+      <section className="z-[3] relative bg-[#F1F7F6] -mx-4 px-4">
+        <div className="center py-14 min-[920px]:py-28 lg:py-32">
+          <div className="min-[920px]:text-center">
+            <h3 className="font-semibold text-sm text-[#30927E] tracking-widest lg:text-base">
+              VALUE PROPOSITION
+            </h3>
+            <h2 className="mt-4 font-semibold text-2xl text-gray-400 min-[920px]:text-3xl lg:text-5xl lg:max-w-[812px] lg:mx-auto">
+              Why Oncrest?
+            </h2>
+          </div>
+
+          <div className="mt-8 min-[920px]:mt-16 lg:mt-32 flex flex-col gap-4 min-[920px]:grid min-[920px]:grid-cols-2">
+            {value_propositions_1.map(({ image: Icon, description, title }) => (
+              <div key={title} className="bg-white p-6 rounded-2xl">
+                <div className="size-14 flex justify-center items-center rounded-lg bg-[#F1F7F6]">
+                  <Icon />
+                </div>
+                <h3 className="mt-8 font-semibold text-gray-400 text-xl lg:text-2xl">
+                  {title}
+                </h3>
+                <p className="mt-3 font-medium text-gray-300">{description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-4 flex flex-col gap-4 min-[920px]:grid min-[920px]:grid-cols-3">
+            {value_propositions_2.map(({ image: Icon, description, title }) => (
+              <div key={title} className="bg-white p-6 rounded-2xl">
+                <div
+                  className={cn(
+                    "size-14 flex justify-center items-center rounded-lg bg-[#F1F7F6]",
+                    {
+                      "[--growth-freedom-rect-bg:#F1F7F6] text-[#30927E]":
+                        title.toLowerCase() === "scalability",
+                    }
+                  )}
+                >
+                  <Icon />
+                </div>
+                <h3 className="mt-8 font-semibold text-gray-400 text-xl lg:text-2xl">
+                  {title}
+                </h3>
+                <p className="mt-3 font-medium text-gray-300">{description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <RolesWeOffer />
       <OurClients />
     </article>
