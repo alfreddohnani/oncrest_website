@@ -1,5 +1,3 @@
-import Image from "next/image";
-import OncrestLogo from "@/lib/assets/oncrest_logo.svg";
 import OncrestLogoWhite from "@/lib/assets/oncrest_logo_white.svg";
 import { Button } from "../../ui/button";
 import { NAV_ITEMS } from "@/lib/constants";
@@ -9,7 +7,7 @@ import { routes } from "@/lib/routes";
 
 export default function MobileNav() {
   return (
-    <article className="md:hidden">
+    <article className="min-[920px]:hidden">
       <div className="navigation">
         <input
           type="checkbox"
@@ -36,7 +34,7 @@ export default function MobileNav() {
               </li>
             ))}
             <li className="mx-4">
-              <Button className="bg-white text-primary-500 font-medium text-xl w-full py-8 px-2 rounded-full">
+              <Button className="bg-white text-primary-500 w-full py-8 px-2">
                 Contact us
               </Button>
             </li>

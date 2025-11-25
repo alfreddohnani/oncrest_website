@@ -90,9 +90,7 @@ export default function HomePage() {
             achieve clarity, compliance, and sustainable growth
           </p>
 
-          <Button className="bg-primary-500 text-white font-semibold text-lg rounded-full px-5 py-6 mt-10">
-            Contact us
-          </Button>
+          <Button className="mt-10">Contact us</Button>
 
           <div className="mt-8 min-[920px]:my-16 lg:mt-32 lg:mb-28 flex justify-between sm:justify-normal sm:gap-x-14 gap-x-6">
             <div>

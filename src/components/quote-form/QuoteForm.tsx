@@ -233,9 +233,7 @@ export default function QuoteForm() {
           />
         </FieldGroup>
         <div>
-          <Button className="text-xl font-semibold text-gray-400 bg-white h-[54px] w-52 rounded-full">
-            Get Quote
-          </Button>
+          <Button className="text-gray-400 bg-white">Get Quote</Button>
         </div>
       </FieldSet>
     </form>
