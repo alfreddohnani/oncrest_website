@@ -48,9 +48,6 @@ export default function QuoteForm() {
   const [isSendingQuote, setIsSendingQuote] = useState(false);
   const [quoteRes, setQuoteRes] = useState<TQuoteRes>();
 
-  console.log("QuoteRes");
-  console.dir(quoteRes, { depth: 5 });
-
   const onSubmit: SubmitHandler<TQuoteForm> = async (data) => {
     try {
       setIsSendingQuote(true);

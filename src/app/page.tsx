@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import hero_1 from "/public/images/hero_1.jpg";
@@ -14,6 +16,7 @@ import OurApproach from "@/components/our-approach/OurApproach";
 import RolesWeOffer from "@/components/roles-we-offer/RolesWeOffer";
 import OurClients from "@/components/our-clients/OurClients";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const strengths: TCardDetail[] = [
   {
@@ -79,22 +82,45 @@ export default function HomePage() {
     <article>
       <section className="center flex flex-col min-[920px]:flex-row min-[920px]:items-center gap-y-16 min-[920px]:gap-x-6 lg:gap-x-7 min-[920px]:pb-28">
         <div>
-          <h1 className="font-semibold text-gray-400 text-[clamp(32px,4.5vw,63px)] leading-[120%] animate-fade-up">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="font-semibold text-gray-400 text-[clamp(32px,4.5vw,63px)] leading-[120%]"
+          >
             Empowering Organizations with Trusted{" "}
             <em className="not-italic text-[#30927E]">Outsourced Solutions</em>
-          </h1>
+          </motion.h1>
 
-          <p className="font-medium text-gray-300 mt-7 lg:text-xl lg:leading-[30px] lg:max-w-[657px] animate-fade-up animate-delay-200">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="font-medium text-gray-300 mt-7 lg:text-xl lg:leading-[30px] lg:max-w-[657px]"
+          >
             Oncrest delivers world-class accounting, IT, and data services —
             combining global standards with local expertise to help businesses
             achieve clarity, compliance, and sustainable growth
-          </p>
+          </motion.p>
 
-          <Button className="mt-10 animate-fade-up animate-delay-300">
-            Contact us
-          </Button>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <Button className="mt-10">Contact us</Button>
+          </motion.div>
 
-          <div className="mt-8 min-[920px]:mt-16 lg:mt-32 flex justify-between sm:justify-normal sm:gap-x-14 gap-x-6 animate-fade-up animate-delay-500">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.45 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="mt-8 min-[920px]:mt-16 lg:mt-32 flex justify-between sm:justify-normal sm:gap-x-14 gap-x-6"
+          >
             <div>
               <h2 className="font-semibold text-gray-400 text-xl lg:text-3xl">
                 2x
@@ -119,10 +145,20 @@ export default function HomePage() {
                 Client satisfaction
               </h4>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="relative animate-fade-left animate-delay-150">
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, x: 50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+          className="relative"
+        >
           <div className="pr-2 lg:pr-0">
             <div className="relative w-full h-[69vw] min-[920px]:size-[clamp(280px,40vw,500px)] rounded-t-[32.47px] min-[920px]:rounded-[32.47px] overflow-hidden">
               <Image
@@ -153,23 +189,50 @@ export default function HomePage() {
               className="scale-x-[1.55]"
             />
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="z-[3] relative bg-[#F1F7F6] -mx-4 px-4">
         <div className="center py-14 min-[920px]:py-28 lg:py-32">
           <div className="min-[920px]:text-center">
-            <h3 className="font-semibold text-sm text-[#30927E] tracking-widest lg:text-base">
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="font-semibold text-sm text-[#30927E] tracking-widest lg:text-base"
+            >
               OUR STRENGTH
-            </h3>
-            <h2 className="mt-4 font-semibold text-2xl text-gray-400 min-[920px]:text-3xl lg:text-5xl lg:leading-[120%] lg:max-w-[812px] lg:mx-auto">
+            </motion.h3>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="mt-4 font-semibold text-2xl text-gray-400 min-[920px]:text-3xl lg:text-5xl lg:leading-[120%] lg:max-w-[812px] lg:mx-auto"
+            >
               Empowering your limitless growth with Oncrest Outsourcing
-            </h2>
+            </motion.h2>
           </div>
 
           <div className="mt-8 min-[920px]:mt-16 lg:mt-32 flex flex-col gap-4 min-[920px]:grid min-[920px]:grid-cols-3">
-            {strengths.map(({ image: Icon, description, title }) => (
-              <div key={title} className="bg-white p-6 rounded-2xl">
+            {strengths.map(({ image: Icon, description, title }, index) => (
+              <motion.div
+                key={title}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }} // triggers when 30% visible
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  ease: "easeOut",
+                }}
+                className="bg-white p-6 rounded-2xl"
+              >
                 <div
                   className={cn({
                     "[--growth-freedom-rect-bg:#A3D4B3] text-green-500":
@@ -182,7 +245,7 @@ export default function HomePage() {
                   {title}
                 </h3>
                 <p className="mt-3 font-medium text-gray-300">{description}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -193,47 +256,97 @@ export default function HomePage() {
       <section className="z-[3] relative bg-[#F1F7F6] -mx-4 px-4">
         <div className="center py-14 min-[920px]:py-28 lg:py-32">
           <div className="min-[920px]:text-center">
-            <h3 className="font-semibold text-sm text-[#30927E] tracking-widest lg:text-base">
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="font-semibold text-sm text-[#30927E] tracking-widest lg:text-base"
+            >
               VALUE PROPOSITION
-            </h3>
-            <h2 className="mt-4 font-semibold text-2xl text-gray-400 min-[920px]:text-3xl lg:text-5xl lg:max-w-[812px] lg:mx-auto">
+            </motion.h3>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="mt-4 font-semibold text-2xl text-gray-400 min-[920px]:text-3xl lg:text-5xl lg:max-w-[812px] lg:mx-auto"
+            >
               Why Oncrest?
-            </h2>
+            </motion.h2>
           </div>
 
           <div className="mt-8 min-[920px]:mt-16 lg:mt-32 flex flex-col gap-4 min-[920px]:grid min-[920px]:grid-cols-2">
-            {value_propositions_1.map(({ image: Icon, description, title }) => (
-              <div key={title} className="bg-white p-6 rounded-2xl">
-                <div className="size-14 flex justify-center items-center rounded-lg bg-[#F1F7F6]">
-                  <Icon />
-                </div>
-                <h3 className="mt-8 font-semibold text-gray-400 text-xl lg:text-2xl">
-                  {title}
-                </h3>
-                <p className="mt-3 font-medium text-gray-300">{description}</p>
-              </div>
-            ))}
+            {value_propositions_1.map(
+              ({ image: Icon, description, title }, index) => (
+                <motion.div
+                  key={title}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }} // triggers when 30% visible
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.15,
+                    ease: "easeOut",
+                  }}
+                  className="bg-white p-6 rounded-2xl"
+                >
+                  <div className="size-14 flex justify-center items-center rounded-lg bg-[#F1F7F6]">
+                    <Icon />
+                  </div>
+                  <h3 className="mt-8 font-semibold text-gray-400 text-xl lg:text-2xl">
+                    {title}
+                  </h3>
+                  <p className="mt-3 font-medium text-gray-300">
+                    {description}
+                  </p>
+                </motion.div>
+              )
+            )}
           </div>
           <div className="mt-4 flex flex-col gap-4 min-[920px]:grid min-[920px]:grid-cols-3">
-            {value_propositions_2.map(({ image: Icon, description, title }) => (
-              <div key={title} className="bg-white p-6 rounded-2xl">
-                <div
-                  className={cn(
-                    "size-14 flex justify-center items-center rounded-lg bg-[#F1F7F6]",
-                    {
-                      "[--growth-freedom-rect-bg:#F1F7F6] text-[#30927E]":
-                        title.toLowerCase() === "scalability",
-                    }
-                  )}
+            {value_propositions_2.map(
+              ({ image: Icon, description, title }, index) => (
+                <motion.div
+                  key={title}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }} // triggers when 30% visible
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.15,
+                    ease: "easeOut",
+                  }}
+                  className="bg-white p-6 rounded-2xl"
                 >
-                  <Icon />
-                </div>
-                <h3 className="mt-8 font-semibold text-gray-400 text-xl lg:text-2xl">
-                  {title}
-                </h3>
-                <p className="mt-3 font-medium text-gray-300">{description}</p>
-              </div>
-            ))}
+                  <div
+                    className={cn(
+                      "size-14 flex justify-center items-center rounded-lg bg-[#F1F7F6]",
+                      {
+                        "[--growth-freedom-rect-bg:#F1F7F6] text-[#30927E]":
+                          title.toLowerCase() === "scalability",
+                      }
+                    )}
+                  >
+                    <Icon />
+                  </div>
+                  <h3 className="mt-8 font-semibold text-gray-400 text-xl lg:text-2xl">
+                    {title}
+                  </h3>
+                  <p className="mt-3 font-medium text-gray-300">
+                    {description}
+                  </p>
+                </motion.div>
+              )
+            )}
           </div>
         </div>
       </section>

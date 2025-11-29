@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import services_1 from "/public/images/services_1.jpg";
@@ -17,6 +19,7 @@ import OurApproach from "@/components/our-approach/OurApproach";
 import RolesWeOffer from "@/components/roles-we-offer/RolesWeOffer";
 import OurClients from "@/components/our-clients/OurClients";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const processes: TCardDetail[] = [
   {
@@ -65,22 +68,50 @@ export default function ServicesPage() {
     <article>
       <section className="center flex flex-col min-[920px]:flex-row min-[920px]:items-center gap-y-[69px] min-[920px]:gap-x-6 lg:gap-x-7 mb-6 min-[920px]:pb-28">
         <div>
-          <h1 className="font-semibold text-gray-400 text-[clamp(32px,4.5vw,71px)] leading-[120%]">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="font-semibold text-gray-400 text-[clamp(32px,4.5vw,71px)] leading-[120%]"
+          >
             Scale Faster with{" "}
             <em className="not-italic text-[#30927E] whitespace-nowrap">
               Trusted Outsourcing
             </em>
-          </h1>
+          </motion.h1>
 
-          <p className="font-medium text-gray-300 mt-7 lg:text-xl lg:leading-[30px] lg:max-w-[645px]">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.25 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="font-medium text-gray-300 mt-7 lg:text-xl lg:leading-[30px] lg:max-w-[645px]"
+          >
             Delegate routine operations to a dependable partner and stay focused
             on growth.
-          </p>
-
-          <Button className="mt-10">Contact us</Button>
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <Button className="mt-10">Contact us</Button>
+          </motion.div>
         </div>
 
-        <div className="relative">
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, x: 50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+          className="relative"
+        >
           <div className="pl-[60px] lg:pr-0">
             <div className="relative w-full h-[70vw] min-[920px]:size-[clamp(280px,40vw,518px)] rounded-[24.32px] min-[920px]:rounded-[42.01px] overflow-hidden">
               <Image
@@ -115,25 +146,51 @@ export default function ServicesPage() {
               Experts in scalable finance operations
             </h3>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="px-4 py-14 bg-primary-800 min-[920px]:py-28 lg:py-32">
         <div className="center">
           <div className="md:text-center">
-            <h3 className="font-semibold text-sm tracking-widest text-gray-100 lg:text-base">
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="font-semibold text-sm tracking-widest text-gray-100 lg:text-base"
+            >
               OUR PROCESS
-            </h3>
-            <h2 className="mt-4 font-semibold text-2xl text-white md:text-3xl lg:text-5xl">
+            </motion.h3>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="mt-4 font-semibold text-2xl text-white md:text-3xl lg:text-5xl"
+            >
               How We Help You Build Your Ideal Team
-            </h2>
+            </motion.h2>
           </div>
 
           <div className="mt-8 md:mt-20 md:max-w-[635px] md:mx-auto">
             {processes.map(({ image: Icon, title, description }, index) => {
               const isEven = (index + 1) % 2 === 0;
               return (
-                <div key={title}>
+                <motion.div
+                  key={title}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }} // triggers when 30% visible
+                  transition={{
+                    duration: 0.6,
+                    delay: (index + 1) * 0.15,
+                    ease: "easeOut",
+                  }}
+                >
                   <div
                     className={cn(
                       "bg-[#015B48] p-5 rounded-xl flex flex-col gap-y-3.5 transition-all duration-300 hover:bg-white group md:max-w-[403px]",
@@ -162,7 +219,7 @@ export default function ServicesPage() {
                       {isEven ? <LeftSArrow /> : <RigthSArrow />}
                     </div>
                   )}
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -172,39 +229,77 @@ export default function ServicesPage() {
       <section className="z-[3] relative bg-[#F1F7F6] -mx-4 px-4">
         <div className="center py-14 min-[920px]:py-28 lg:py-32">
           <div className="min-[920px]:text-center">
-            <h3 className="font-semibold text-sm text-[#30927E] tracking-widest lg:text-base">
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="font-semibold text-sm text-[#30927E] tracking-widest lg:text-base"
+            >
               HOW WE EXCELL
-            </h3>
-            <h2 className="mt-4 font-semibold text-2xl text-gray-400 min-[920px]:text-3xl lg:text-5xl lg:leading-[120%] lg:max-w-[1012px] lg:mx-auto">
+            </motion.h3>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.25 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="mt-4 font-semibold text-2xl text-gray-400 min-[920px]:text-3xl lg:text-5xl lg:leading-[120%] lg:max-w-[1012px] lg:mx-auto"
+            >
               We provide more than roles—we deliver the service your business
               deserves
-            </h2>
+            </motion.h2>
           </div>
 
           <div className="flex flex-col gap-14 min-[920px]:flex-row bg-white p-4 md:p-8 rounded-2xl mt-8 md:mt-16 lg:mt-32 ">
             <div className="flex flex-col gap-14">
-              {how_we_excell.map(({ image: Icon, description, title }) => (
-                <div key={title}>
-                  <div
-                    className={cn({
-                      "[--growth-freedom-rect-bg:#A3D4B3] text-green-500":
-                        title.toLowerCase() === "operational growth freedom",
-                    })}
+              {how_we_excell.map(
+                ({ image: Icon, description, title }, index) => (
+                  <motion.div
+                    key={title}
+                    variants={{
+                      hidden: { opacity: 0, y: 30 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }} // triggers when 30% visible
+                    transition={{
+                      duration: 0.6,
+                      delay: index * 0.15,
+                      ease: "easeOut",
+                    }}
                   >
-                    <Icon />
-                  </div>
-                  <h3 className="mt-8 font-semibold text-gray-400 text-xl lg:text-2xl">
-                    {title}
-                  </h3>
-                  <p className="mt-3 font-medium text-gray-300">
-                    {description}
-                  </p>
-                </div>
-              ))}
+                    <div
+                      className={cn({
+                        "[--growth-freedom-rect-bg:#A3D4B3] text-green-500":
+                          title.toLowerCase() === "operational growth freedom",
+                      })}
+                    >
+                      <Icon />
+                    </div>
+                    <h3 className="mt-8 font-semibold text-gray-400 text-xl lg:text-2xl">
+                      {title}
+                    </h3>
+                    <p className="mt-3 font-medium text-gray-300">
+                      {description}
+                    </p>
+                  </motion.div>
+                )
+              )}
             </div>
 
             <div>
-              <div className="relative w-full h-[134vw] min-[920px]:w-[327px] min-[920px]:h-[560px] overflow-hidden rounded-lg xl:w-[596px] xl:h-[560px]">
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, x: 50 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+                className="relative w-full h-[134vw] min-[920px]:w-[327px] min-[920px]:h-[560px] overflow-hidden rounded-lg xl:w-[596px] xl:h-[560px]"
+              >
                 <Image
                   src={smiley_friends_phone}
                   alt="Dedicated staff"
@@ -217,7 +312,7 @@ export default function ServicesPage() {
                   placeholder="blur"
                   className="rounded-lg [transform:scaleX(2.5)] xl:[transform:scaleX(1.35)] h-full"
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

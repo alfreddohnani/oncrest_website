@@ -1,3 +1,5 @@
+"use client";
+
 import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 import QuoteForm from "../quote-form/QuoteForm";
 import LinkedInLogo from "@/lib/assets/illustrations/linkedin.svg";
@@ -6,6 +8,7 @@ import OncrestGray from "@/lib/assets/illustrations/oncrest_gray.svg";
 import OncrestLogoWhite from "@/lib/assets/oncrest_logo_white.svg";
 import Link from "next/link";
 import { routes } from "@/lib/routes";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
@@ -16,29 +19,65 @@ export default function Footer() {
             <div>
               <div>
                 <div>
-                  <h3 className="font-semibold text-sm text-[#54C8B0] tracking-widest lg:text-base">
+                  <motion.h3
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    className="font-semibold text-sm text-[#54C8B0] tracking-widest lg:text-base"
+                  >
                     GET PERSONALISED QUOTE
-                  </h3>
-                  <h2 className="mt-4 font-semibold text-2xl min-[920px]:text-3xl lg:text-5xl">
+                  </motion.h3>
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    className="mt-4 font-semibold text-2xl min-[920px]:text-3xl lg:text-5xl"
+                  >
                     Together we can do extraordinary things
-                  </h2>
+                  </motion.h2>
                 </div>
-                <p className="mt-4 font-medium">
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.75 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  className="mt-4 font-medium"
+                >
                   Our commitment is to learn your needs and deliver a customized
                   staffing strategy that cultivates a friendly, dependable team
                   for lasting success.
-                </p>
+                </motion.p>
               </div>
 
               <div className="mt-10 space-y-4">
-                <div className="flex gap-x-3">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  className="flex gap-x-3"
+                >
                   <MailIcon />{" "}
                   <h5 className="underline font-medium">hello@oncrest.com</h5>
-                </div>
-                <div className="flex gap-x-3">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.85 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  className="flex gap-x-3"
+                >
                   <MapPinIcon /> <h5 className="font-medium">Accra, Ghana</h5>
-                </div>
-                <div className="flex gap-x-3">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.9 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  className="flex gap-x-3"
+                >
                   <PhoneIcon />{" "}
                   <h5 className="font-medium">
                     <a
@@ -49,14 +88,24 @@ export default function Footer() {
                       +234 000 0000
                     </a>
                   </h5>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
 
-          <div className="mt-8 min-[920px]:max-w-[581px] min-[920px]:flex-1">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, x: 50 },
+              visible: { opacity: 1, x: 0 },
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+            className="mt-8 min-[920px]:max-w-[581px] min-[920px]:flex-1"
+          >
             <QuoteForm />
-          </div>
+          </motion.div>
         </div>
       </section>
 
