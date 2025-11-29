@@ -17,6 +17,7 @@ import RolesWeOffer from "@/components/roles-we-offer/RolesWeOffer";
 import OurClients from "@/components/our-clients/OurClients";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const strengths: TCardDetail[] = [
   {
@@ -111,7 +112,9 @@ export default function HomePage() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <Button className="mt-10">Contact us</Button>
+            <Link href="#footer">
+              <Button className="mt-10">Contact us</Button>
+            </Link>
           </motion.div>
 
           <motion.div

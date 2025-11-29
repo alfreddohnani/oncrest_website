@@ -2,6 +2,7 @@ import OncrestLogo from "@/lib/assets/oncrest_logo.svg";
 import MobileNav from "./mobile-nav/MobileNav";
 import { Button } from "@/components/ui/button";
 import DesktopNav from "./DesktopNav";
+import Link from "next/link";
 
 export default function Nav() {
   return (
@@ -16,9 +17,11 @@ export default function Nav() {
         {/* Desktop Nav */}
         <DesktopNav />
 
-        <Button size="sm" className="hidden min-[920px]:block">
-          Contact us
-        </Button>
+        <Link href="#footer">
+          <Button size="sm" className="hidden min-[920px]:block">
+            Contact us
+          </Button>
+        </Link>
       </section>
     </article>
   );

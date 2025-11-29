@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${PPEditorialNew.variable} antialiased`}
+        className={`${geistSans.variable} ${PPEditorialNew.variable} antialiased scroll-smooth`}
       >
         <Nav />
         <main>{children}</main>

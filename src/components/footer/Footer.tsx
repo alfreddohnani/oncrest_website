@@ -12,7 +12,10 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="text-white -mx-4 px-4 bg-[#001E18] [background-image:url('/images/bg_ellipse.svg')] [background-position:-100px_430px] min-[920px]:[background-position:25vw_13%] [background-size:710px_1080px] min-[920px]:[background-size:100%_65%] bg-no-repeat">
+    <footer
+      id="footer"
+      className="text-white -mx-4 px-4 bg-[#001E18] [background-image:url('/images/bg_ellipse.svg')] [background-position:-100px_430px] min-[920px]:[background-position:25vw_13%] [background-size:710px_1080px] min-[920px]:[background-size:100%_65%] bg-no-repeat"
+    >
       <section className="center py-14 min-[920px]:py-28 lg:py-32">
         <div className="min-[920px]:flex min-[920px]:gap-10 min-[920px]:justify-between">
           <div className="min-[920px]:flex-1 min-[920px]:max-w-[397px]">
@@ -120,7 +123,7 @@ export default function Footer() {
               <Link href={routes.home()}>Home</Link>
               <Link href={routes.services()}>Services</Link>
               <Link href={routes.aboutUs()}>About us</Link>
-              <Link href={routes.contactUs()}>Contact us</Link>
+              <Link href="#footer">Contact us</Link>
             </div>
             <div className="flex flex-col gap-y-4 text-gray-300 font-medium">
               <h3>Follow us</h3>
