@@ -48,7 +48,9 @@ export default function DesktopNav() {
           <Link
             key={link}
             href={link}
-            ref={(el: HTMLAnchorElement) => (linkRefs.current[link] = el)}
+            ref={(el: HTMLAnchorElement | null) => {
+              linkRefs.current[link] = el;
+            }}
             className={cn(
               "relative z-10 py-2 px-4 transition-colors duration-300 flex items-center gap-2",
               isActive && "text-primary-600 font-semibold"

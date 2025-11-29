@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { QuoteFormSchema, TQuoteForm } from "@/lib/form-schema";
 import { TQuoteRes } from "@/lib/types";
 import { NextResponse } from "next/server";
