@@ -15,6 +15,7 @@ const config: Config = {
     fontFamily: {
       heading: ["var(--font-sans)", ...fontFamily.serif],
       body: ["var(--font-sans)", ...fontFamily.sans],
+      editorial: ["var(--font-pp-editorial-new)", ...fontFamily.serif],
     },
     extend: {
       colors: {
@@ -118,6 +119,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animated")],
 };
 export default config;

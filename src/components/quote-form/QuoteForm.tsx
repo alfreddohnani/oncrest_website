@@ -1,5 +1,4 @@
 "use client";
-import * as z from "zod";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -21,6 +20,9 @@ import {
   SelectValue,
 } from "../ui/select";
 import { Button } from "../ui/button";
+import { QuoteFormSchema, TQuoteForm } from "@/lib/form-schema";
+import { useState } from "react";
+import { TQuoteRes } from "@/lib/types";
 
 const staffRoles = [
   "Data entry",
@@ -36,30 +38,35 @@ const staffingVolumes = [
   { label: "Other", value: "Other" },
 ] as const;
 
-const quoteFormSchema = z.object({
-  fullName: z
-    .string()
-    .trim()
-    .min(1, "Full name is required")
-    .refine((val) => val?.split(" ")?.length >= 2, {
-      error: "Provide both your first and last names",
-    }),
-  companyName: z.string().trim().min(1, "Company name is required"),
-  jobTitle: z.string().trim().min(1, "Job title is required"),
-  roles: z.array(z.string()).min(1, "Choose at least one role"),
-  message: z.string().optional(),
-  staffingVolume: z.string().min(1, "Staffing volume is required"),
-});
-
-type TQuoteForm = z.infer<typeof quoteFormSchema>;
-const resolver = zodResolver(quoteFormSchema);
+const resolver = zodResolver(QuoteFormSchema);
 
 export default function QuoteForm() {
   const form = useForm<TQuoteForm>({
     resolver,
   });
 
-  const onSubmit: SubmitHandler<TQuoteForm> = (data) => {};
+  const [isSendingQuote, setIsSendingQuote] = useState(false);
+  const [quoteRes, setQuoteRes] = useState<TQuoteRes>();
+
+  console.log("QuoteRes");
+  console.dir(quoteRes, { depth: 5 });
+
+  const onSubmit: SubmitHandler<TQuoteForm> = async (data) => {
+    try {
+      setIsSendingQuote(true);
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+      });
+      const quoteRes: TQuoteRes = await res.json();
+      setQuoteRes(quoteRes);
+    } catch (error: any) {
+      setQuoteRes(error);
+    } finally {
+      setIsSendingQuote(false);
+    }
+  };
 
   return (
     <form
@@ -91,9 +98,31 @@ export default function QuoteForm() {
           />
           <Controller
             control={form.control}
+            name="email"
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel className="text-base" htmlFor={field.name}>
+                  Email
+                </FieldLabel>
+                <Input
+                  className="placeholder:text-[#BABABA] placeholder:font-medium"
+                  {...field}
+                  id={field.name}
+                  aria-invalid={fieldState.invalid}
+                  placeholder="Enter email"
+                  type="email"
+                />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
+          <Controller
+            control={form.control}
             name="companyName"
             render={({ field, fieldState }) => (
-              <Field aria-invalid={fieldState.invalid}>
+              <Field data-invalid={fieldState.invalid}>
                 <FieldLabel className="text-base" htmlFor={field.name}>
                   Company name
                 </FieldLabel>
@@ -114,7 +143,7 @@ export default function QuoteForm() {
             control={form.control}
             name="jobTitle"
             render={({ field, fieldState }) => (
-              <Field aria-invalid={fieldState.invalid}>
+              <Field data-invalid={fieldState.invalid}>
                 <FieldLabel className="text-base" htmlFor={field.name}>
                   Job title
                 </FieldLabel>
@@ -136,7 +165,9 @@ export default function QuoteForm() {
             name="roles"
             render={({ field, fieldState }) => (
               <FieldSet>
-                <FieldLegend>Which roles do you require?</FieldLegend>
+                <FieldLegend data-invalid={fieldState.invalid}>
+                  Which roles do you require?
+                </FieldLegend>
                 <FieldGroup>
                   {staffRoles.map((role) => (
                     <Field
@@ -172,7 +203,7 @@ export default function QuoteForm() {
             control={form.control}
             name="message"
             render={({ field, fieldState }) => (
-              <Field aria-invalid={fieldState.invalid}>
+              <Field data-invalid={fieldState.invalid}>
                 <FieldLabel
                   className="text-base"
                   htmlFor={field.name}
@@ -197,7 +228,7 @@ export default function QuoteForm() {
             control={form.control}
             name="staffingVolume"
             render={({ field, fieldState }) => (
-              <Field aria-invalid={fieldState.invalid}>
+              <Field data-invalid={fieldState.invalid}>
                 <FieldLabel
                   className="text-base"
                   htmlFor={field.name}
@@ -213,7 +244,7 @@ export default function QuoteForm() {
                   <SelectTrigger
                     id={field.name}
                     aria-invalid={fieldState.invalid}
-                    className="min-w-32"
+                    className="min-w-32 data-[placeholder]:text-white"
                   >
                     <SelectValue placeholder="Select one" />
                   </SelectTrigger>
@@ -232,8 +263,33 @@ export default function QuoteForm() {
             )}
           />
         </FieldGroup>
+        {quoteRes?.success && (
+          <div className="animate-fade-up">
+            <h3 className="text-green-300 font-semibold">
+              Quote sent successfully. You will receive a response from us
+              shortly.
+            </h3>
+          </div>
+        )}
+        {quoteRes?.error && (
+          <div className="animate-fade-up">
+            <h3 className="text-green-300 font-semibold">
+              {quoteRes?.message || quoteRes.error}
+            </h3>
+          </div>
+        )}
         <div>
-          <Button className="text-gray-400 bg-white">Get Quote</Button>
+          <Button
+            type="submit"
+            className="text-gray-400 bg-white"
+            disabled={isSendingQuote}
+          >
+            {isSendingQuote ? (
+              <span className="animate-pulse">Sending Quote...</span>
+            ) : (
+              <span>Get Quote</span>
+            )}
+          </Button>
         </div>
       </FieldSet>
     </form>

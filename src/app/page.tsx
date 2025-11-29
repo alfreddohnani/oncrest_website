@@ -79,20 +79,22 @@ export default function HomePage() {
     <article>
       <section className="center flex flex-col min-[920px]:flex-row min-[920px]:items-center gap-y-16 min-[920px]:gap-x-6 lg:gap-x-7 min-[920px]:pb-28">
         <div>
-          <h1 className="font-semibold text-gray-400 text-[clamp(32px,4.5vw,63px)] leading-[120%]">
+          <h1 className="font-semibold text-gray-400 text-[clamp(32px,4.5vw,63px)] leading-[120%] animate-fade-up">
             Empowering Organizations with Trusted{" "}
             <em className="not-italic text-[#30927E]">Outsourced Solutions</em>
           </h1>
 
-          <p className="font-medium text-gray-300 mt-7 lg:text-xl lg:leading-[30px] lg:max-w-[657px]">
+          <p className="font-medium text-gray-300 mt-7 lg:text-xl lg:leading-[30px] lg:max-w-[657px] animate-fade-up animate-delay-200">
             Oncrest delivers world-class accounting, IT, and data services —
             combining global standards with local expertise to help businesses
             achieve clarity, compliance, and sustainable growth
           </p>
 
-          <Button className="mt-10">Contact us</Button>
+          <Button className="mt-10 animate-fade-up animate-delay-300">
+            Contact us
+          </Button>
 
-          <div className="mt-8 min-[920px]:mt-16 lg:mt-32 flex justify-between sm:justify-normal sm:gap-x-14 gap-x-6">
+          <div className="mt-8 min-[920px]:mt-16 lg:mt-32 flex justify-between sm:justify-normal sm:gap-x-14 gap-x-6 animate-fade-up animate-delay-500">
             <div>
               <h2 className="font-semibold text-gray-400 text-xl lg:text-3xl">
                 2x
@@ -120,7 +122,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative animate-fade-left animate-delay-150">
           <div className="pr-2 lg:pr-0">
             <div className="relative w-full h-[69vw] min-[920px]:size-[clamp(280px,40vw,500px)] rounded-t-[32.47px] min-[920px]:rounded-[32.47px] overflow-hidden">
               <Image

@@ -3,3 +3,9 @@ export type TCardDetail = {
   title: string;
   description: string;
 };
+
+export type TQuoteRes = {
+  success?: boolean;
+  error?: string;
+  message?: string;
+};

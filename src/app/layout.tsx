@@ -9,6 +9,11 @@ const geistSans = localFont({
   variable: "--font-sans",
   weight: "100 900",
 });
+const PPEditorialNew = localFont({
+  src: "../lib/assets/fonts/PPEditorialNew-UltralightItalic.woff",
+  variable: "--font-pp-editorial-new",
+  weight: "100 900",
+});
 
 export const metadata: Metadata = {
   title: "Oncrest Limited",
@@ -22,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${PPEditorialNew.variable} antialiased`}
+      >
         <Nav />
         <main>{children}</main>
         <Footer />
