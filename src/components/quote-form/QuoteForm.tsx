@@ -59,6 +59,15 @@ export default function QuoteForm() {
       });
       const quoteRes: TQuoteRes = await res.json();
       setQuoteRes(quoteRes);
+      form.reset({
+        companyName: "",
+        email: "",
+        fullName: "",
+        jobTitle: "",
+        message: "",
+        roles: [],
+        staffingVolume: "",
+      });
     } catch (error: any) {
       setQuoteRes(error);
     } finally {

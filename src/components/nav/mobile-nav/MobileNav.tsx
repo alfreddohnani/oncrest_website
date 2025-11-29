@@ -26,7 +26,13 @@ export default function MobileNav() {
         <div className="navigation__background">&nbsp;</div>
 
         <nav className="navigation__nav">
-          <Link href={routes.home()} className="navigation__logo">
+          <Link
+            href={routes.home()}
+            className="navigation__logo"
+            onClick={() => {
+              if (ref.current) ref.current.checked = false;
+            }}
+          >
             <OncrestLogoWhite />
           </Link>
           <ul className="navigation__list sm:max-w-xs">
