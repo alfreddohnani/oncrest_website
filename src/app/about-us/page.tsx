@@ -69,7 +69,7 @@ export default function AboutUsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
-              className="font-semibold text-sm text-[#30927E] tracking-widest lg:text-base min-[920px]:border min-[920px]:border-[#30927E] min-[920px]:py-2 min-[920px]:px-3 min-[920px]:rounded-full w-fit"
+              className="font-semibold text-sm text-[#30927E] tracking-widest lg:text-base"
             >
               WHO WE ARE
             </motion.h3>
@@ -133,7 +133,7 @@ export default function AboutUsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
-              className="font-semibold text-sm text-[#30927E] tracking-widest lg:text-base min-[920px]:border min-[920px]:border-[#30927E] min-[920px]:py-2 min-[920px]:px-3 min-[920px]:rounded-full w-fit"
+              className="font-semibold text-sm text-[#30927E] tracking-widest lg:text-base"
             >
               OUR PURPOSE
             </motion.h3>
@@ -192,7 +192,7 @@ export default function AboutUsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
-              className="font-semibold text-sm text-[#30927E] tracking-widest lg:text-base min-[920px]:border min-[920px]:border-[#30927E] min-[920px]:py-2 min-[920px]:px-3 min-[920px]:rounded-full w-fit min-[920px]:mx-auto"
+              className="font-semibold text-sm text-[#30927E] tracking-widest lg:text-base min-[920px]:mx-auto"
             >
               OUR VALUES
             </motion.h3>
