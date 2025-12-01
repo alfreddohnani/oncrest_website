@@ -17,7 +17,39 @@ const PPEditorialNew = localFont({
 
 export const metadata: Metadata = {
   title: "Oncrest Limited",
-  description: "Empowering Organizations with Trusted Outsourced Solutions",
+  description: "Empowering Organizations with Trusted Outsourced Solutions.",
+  openGraph: {
+    title: "Oncrest Limited",
+    description: "Empowering Organizations with Trusted Outsourced Solutions.",
+    url: `https://www.oncrestltd.com`,
+    type: "website",
+    siteName: "Oncrest Limited",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dsh0agz09/image/upload/v1764589715/oncrest_opengraph_horizontal_ffbbzt.svg",
+        secureUrl:
+          "https://res.cloudinary.com/dsh0agz09/image/upload/v1764589715/oncrest_opengraph_horizontal_ffbbzt.svg",
+        width: 533,
+        height: 186,
+        alt: `Empowering Organizations with Trusted Outsourced Solutions.`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@oncrest",
+    title: "Oncrest Limited",
+    description: "Empowering Organizations with Trusted Outsourced Solutions.",
+    creator: "@oncrest",
+    images: {
+      url: "https://res.cloudinary.com/dsh0agz09/image/upload/v1764589716/oncrest_opengraph_nbixqe.svg",
+      alt: `Empowering Organizations with Trusted Outsourced Solutions.`,
+    },
+  },
+  applicationName: "Oncrest",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
 };
 
 export default function RootLayout({
