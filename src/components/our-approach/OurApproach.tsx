@@ -13,25 +13,25 @@ const approach_section_details_list: TCardDetail[] = [
     image: couple_working_from_home,
     title: "Talent searches",
     description:
-      "This is a placeholder text for the particular section of the website design",
+      "We conduct targeted talent acquisition using proven recruitment methodologies to identify qualified professionals aligned with our clients’ technical, operational, and cultural requirements. Our process emphasizes quality, reliability, and long-term value creation.",
   },
   {
     image: talent_searches,
     title: "Customised staffing plans",
     description:
-      "This is a placeholder text for the particular section of the website design",
+      "We develop tailored staffing strategies designed to support clients’ operational objectives, workforce planning, and scalability requirements. Our solutions are flexible, cost-effective, and aligned with evolving business and regulatory needs.",
   },
   {
     image: staff_management,
     title: "Staff management",
     description:
-      "This is a placeholder text for the particular section of the website design",
+      "We oversee all aspects of workforce administration, including onboarding, HR coordination, compliance, and workforce reporting. This ensures seamless operations, risk mitigation, and adherence to established governance standards.",
   },
   {
     image: performance_reviews,
     title: "Performance reviews",
     description:
-      "This is a placeholder text for the particular section of the website design",
+      "We implement structured performance management frameworks supported by clear KPIs and regular reporting. Our review processes promote accountability, continuous improvement, and sustained service excellence.",
   },
 ];
 
